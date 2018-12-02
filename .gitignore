@@ -4,3 +4,4 @@ dist/
 lib/
 npm-debug.log
 example/bundle.js
+yarn.lock

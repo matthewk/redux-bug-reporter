@@ -255,9 +255,9 @@ class UnconnectedBugReporter extends React.Component {
 			return (
 				<div className="Redux-Bug-Reporter">
 					<div
-						className={`Redux-Bug-Reporter__form Redux-Bug-Reporter__form--${error
-							? 'fail'
-							: 'success'}`}
+						className={`Redux-Bug-Reporter__form Redux-Bug-Reporter__form--${
+							error ? 'fail' : 'success'
+						}`}
 					>
 						{error ? (
 							<div>
@@ -269,7 +269,7 @@ class UnconnectedBugReporter extends React.Component {
 								<div>Your bug has been filed successfully!</div>
 								{bugURL && (
 									<div>
-										<a target="_blank" href={bugURL}>
+										<a target="_blank" rel="noopener noreferrer" href={bugURL}>
 											Here is a link to it!
 										</a>
 									</div>
@@ -279,9 +279,9 @@ class UnconnectedBugReporter extends React.Component {
 					</div>
 					<div className="Redux-Bug-Reporter__show-hide-container">
 						<button
-							className={`Redux-Bug-Reporter__show-hide-button Redux-Bug-Reporter__show-hide-button--${error
-								? 'expanded'
-								: 'collapsed'}`}
+							className={`Redux-Bug-Reporter__show-hide-button Redux-Bug-Reporter__show-hide-button--${
+								error ? 'expanded' : 'collapsed'
+							}`}
 							onClick={this.dismiss}
 						/>
 					</div>
@@ -329,10 +329,9 @@ class UnconnectedBugReporter extends React.Component {
 				)}
 				<div className="Redux-Bug-Reporter__show-hide-container">
 					<button
-						className={`Redux-Bug-Reporter__show-hide-button Redux-Bug-Reporter__show-hide-button--${this
-							.state.expanded
-							? 'expanded'
-							: 'collapsed'}`}
+						className={`Redux-Bug-Reporter__show-hide-button Redux-Bug-Reporter__show-hide-button--${
+							this.state.expanded ? 'expanded' : 'collapsed'
+						}`}
 						onClick={this.toggleExpanded}
 					/>
 				</div>
@@ -360,9 +359,10 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-const ConnectedBugReporter = connect(mapStateToProps, mapDispatchToProps)(
-	UnconnectedBugReporter,
-)
+const ConnectedBugReporter = connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(UnconnectedBugReporter)
 
 export { UnconnectedBugReporter }
 export default ConnectedBugReporter
